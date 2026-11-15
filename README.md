@@ -106,7 +106,7 @@ You'll need [Node.js](https://nodejs.org/) (version 18 or newer).
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/<your-username>/project-structure-guide.git
+git clone https://github.com/faizanulrehman890-afk/project-structure-guide.git
 cd project-structure-guide
 
 # 2. Create your own .env file from the template
