@@ -1,0 +1,114 @@
+# =============================================================================
+# .gitignore
+# =============================================================================
+# WHY THIS FILE EXISTS:
+#   Git tracks every file in your project folder unless you tell it not to.
+#   This file lists files and folders Git should IGNORE, so they are never
+#   committed or pushed to GitHub.
+#
+#   We ignore things that are:
+#     1. SECRET:        passwords and API keys (.env)
+#     2. RE-CREATABLE:  installed packages and build output (node_modules/, dist/)
+#     3. PERSONAL:      OS and editor junk that differs per computer
+#
+# HOW IT WORKS:
+#   - Each line is a pattern.
+#   - Lines starting with # are comments.
+#   - A trailing slash (folder/) matches a folder.
+#   - * is a wildcard: *.log matches every file ending in .log
+#   - ! un-ignores something: !.env.example
+#
+# TIP: Already committed a file by mistake? Adding it here won't remove it.
+#      Run: git rm --cached <file>   and then commit.
+# =============================================================================
+
+
+# -----------------------------------------------------------------------------
+# Dependencies
+# Installed packages can be HUGE (hundreds of MB). Anyone can reinstall them
+# with `npm install` using package.json, so there's no need to commit them.
+# -----------------------------------------------------------------------------
+node_modules/
+.pnp/
+.pnp.js
+
+
+# -----------------------------------------------------------------------------
+# Environment variables (SECRETS!)
+# .env holds real API keys and passwords. NEVER commit it.
+# .env.example is a safe template with fake values, so we keep it.
+# -----------------------------------------------------------------------------
+.env
+.env.local
+.env.*.local
+!.env.example
+
+
+# -----------------------------------------------------------------------------
+# Build output
+# Generated automatically from your source code. Rebuild it anytime.
+# -----------------------------------------------------------------------------
+dist/
+build/
+out/
+coverage/
+
+
+# -----------------------------------------------------------------------------
+# Logs
+# Debug logs are created while running the app. They're noisy and personal.
+# -----------------------------------------------------------------------------
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+
+# -----------------------------------------------------------------------------
+# Operating system files
+# Your computer creates these automatically. They're useless to other people.
+# -----------------------------------------------------------------------------
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux
+*~
+
+
+# -----------------------------------------------------------------------------
+# Editors and IDEs
+# Personal editor settings. Note: we do NOT ignore .vscode/settings.json,
+# because shared team settings are useful. We only ignore personal extras.
+# -----------------------------------------------------------------------------
+.idea/
+*.swp
+*.swo
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+
+
+# -----------------------------------------------------------------------------
+# AI agent local files
+# Claude Code can store PERSONAL settings here. The shared .claude/CLAUDE.md
+# is still committed so the whole team gets the same AI instructions.
+# -----------------------------------------------------------------------------
+.claude/settings.local.json
+CLAUDE.local.md
+
+
+# -----------------------------------------------------------------------------
+# Temporary files
+# -----------------------------------------------------------------------------
+tmp/
+temp/
+*.tmp

@@ -1,0 +1,90 @@
+# =============================================================================
+# .github/workflows/ci.yml
+# =============================================================================
+# WHY THIS FILE EXISTS:
+#   This is a GitHub Actions "workflow". GitHub automatically looks inside the
+#   .github/workflows/ folder and runs any .yml file it finds there.
+#
+#   "CI" means Continuous Integration: every time someone pushes code or opens
+#   a pull request, a fresh computer in the cloud checks that the code still
+#   works. If something breaks, you see a red ❌ on GitHub. If all is well,
+#   you see a green ✅.
+#
+#   This catches bugs BEFORE they're merged into the main branch.
+#
+# YAML BASICS:
+#   - Indentation matters! Use SPACES, never tabs.
+#   - `key: value` sets a value.
+#   - `- item` is an item in a list.
+#   - Lines starting with # are comments.
+#
+# SEE THE RESULTS:
+#   Open your repo on GitHub and click the "Actions" tab.
+# =============================================================================
+
+# The name shown in the GitHub "Actions" tab
+name: CI
+
+# -----------------------------------------------------------------------------
+# WHEN should this workflow run?
+# -----------------------------------------------------------------------------
+on:
+  # Run when code is pushed to the main branch
+  push:
+    branches: [main]
+
+  # Run when a pull request targets the main branch
+  pull_request:
+    branches: [main]
+
+  # Adds a "Run workflow" button in the Actions tab so you can run it manually
+  workflow_dispatch:
+
+# -----------------------------------------------------------------------------
+# WHAT should it do?
+# A workflow contains one or more "jobs". Each job runs on its own fresh machine.
+# -----------------------------------------------------------------------------
+jobs:
+  build-and-test:
+    # A friendly name shown in the GitHub UI
+    name: Build & Test (Node ${{ matrix.node-version }})
+
+    # The type of machine to run on (a free Linux computer provided by GitHub)
+    runs-on: ubuntu-latest
+
+    # A "matrix" runs the same job several times with different settings.
+    # Here we test on multiple Node.js versions to make sure it works on all.
+    strategy:
+      matrix:
+        node-version: [18, 20, 22]
+
+    # Steps run one after another. If any step fails, the job stops and fails.
+    steps:
+      # Step 1: Download the repository's code onto the machine.
+      # `uses` runs a pre-built "action" made by GitHub or the community.
+      - name: Check out code
+        uses: actions/checkout@v4
+
+      # Step 2: Install the requested version of Node.js
+      - name: Set up Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      # Step 3: Show the versions (useful for debugging)
+      # `run` executes a shell command, just like typing it in a terminal.
+      - name: Print versions
+        run: |
+          node --version
+          npm --version
+
+      # Step 4: Install dependencies listed in package.json.
+      # Once your project has a package-lock.json, switch to `npm ci`:
+      # it's faster and installs the exact locked versions.
+      - name: Install dependencies
+        run: npm install
+
+      # Step 5: Run the tests (the "test" script in package.json).
+      # In a real project you might also run: npm run lint
+      - name: Run tests
+        run: npm test

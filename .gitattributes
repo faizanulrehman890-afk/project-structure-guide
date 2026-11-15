@@ -1,0 +1,22 @@
+# =============================================================================
+# .gitattributes
+# =============================================================================
+# WHY THIS FILE EXISTS:
+#   Windows ends lines of text with two invisible characters (CRLF), while
+#   macOS and Linux use one (LF). When a team mixes operating systems, Git can
+#   show every line of a file as "changed" just because the line endings flipped.
+#
+#   This file tells Git how to handle files, no matter what each person's
+#   computer settings are. Here we make every text file use LF, which matches
+#   the `end_of_line = lf` rule in .editorconfig.
+# =============================================================================
+
+# Auto-detect text files and always store/check them out with LF endings
+* text=auto eol=lf
+
+# Binary files: never touch their contents
+*.png binary
+*.jpg binary
+*.gif binary
+*.ico binary
+*.pdf binary

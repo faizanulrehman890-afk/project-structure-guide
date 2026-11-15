@@ -1,0 +1,64 @@
+# =============================================================================
+# .editorconfig
+# =============================================================================
+# WHY THIS FILE EXISTS:
+#   Different people use different editors (VS Code, WebStorm, Vim, Sublime...)
+#   and each has its own default settings. One person uses tabs, another uses
+#   4 spaces, another uses 2. The result is messy, inconsistent code.
+#
+#   EditorConfig fixes this. Most editors read this file automatically and
+#   follow its rules, so everyone's code looks the same no matter what
+#   editor they use.
+#
+#   VS Code needs the free "EditorConfig for VS Code" extension.
+#   Most other editors (JetBrains, Visual Studio, GitHub's web editor) support
+#   it out of the box.
+#
+# HOW IT WORKS:
+#   - [pattern] sections choose which files the rules apply to
+#   - Later sections override earlier ones
+#   - Learn more: https://editorconfig.org
+# =============================================================================
+
+# This is the top-most .editorconfig file. Don't look in parent folders.
+root = true
+
+
+# -----------------------------------------------------------------------------
+# Rules for ALL files
+# -----------------------------------------------------------------------------
+[*]
+# Use UTF-8 so emojis and international characters work everywhere
+charset = utf-8
+
+# Use Unix-style line endings (LF). Windows uses CRLF by default, which can
+# cause Git to show every line as "changed".
+end_of_line = lf
+
+# Indent with spaces, not tabs
+indent_style = space
+
+# Each indentation level is 2 spaces
+indent_size = 2
+
+# Always end files with a newline (many tools expect this)
+insert_final_newline = true
+
+# Remove invisible spaces at the end of lines
+trim_trailing_whitespace = true
+
+
+# -----------------------------------------------------------------------------
+# Markdown files
+# Two trailing spaces in Markdown create a line break, so keep them.
+# -----------------------------------------------------------------------------
+[*.md]
+trim_trailing_whitespace = false
+
+
+# -----------------------------------------------------------------------------
+# Makefiles
+# Makefiles REQUIRE real tab characters, or they break.
+# -----------------------------------------------------------------------------
+[Makefile]
+indent_style = tab

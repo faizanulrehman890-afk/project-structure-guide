@@ -1,0 +1,73 @@
+// =============================================================================
+// .vscode/settings.json
+// =============================================================================
+// WHY THIS FILE EXISTS:
+//   VS Code has two levels of settings:
+//     1. USER settings      → apply to every project on your computer
+//     2. WORKSPACE settings → apply ONLY to this project (this file!)
+//
+//   Committing this file means everyone on the team who uses VS Code gets the
+//   same helpful setup automatically: same formatting, same hidden files, etc.
+//
+// NOTE ABOUT COMMENTS:
+//   Normal JSON does NOT allow comments. VS Code settings files are special:
+//   they use "JSON with Comments" (JSONC), so comments like these are OK here.
+//
+// TIP: Open the Settings UI with Ctrl + , (Cmd + , on Mac) and switch to the
+//      "Workspace" tab to see these settings visually.
+// =============================================================================
+{
+  // ---------------------------------------------------------------------------
+  // Formatting
+  // ---------------------------------------------------------------------------
+
+  // Automatically tidy up your code every time you save
+  "editor.formatOnSave": true,
+
+  // Use 2 spaces for indentation (matches .editorconfig)
+  "editor.tabSize": 2,
+
+  // Insert spaces when you press Tab, instead of a tab character
+  "editor.insertSpaces": true,
+
+  // Show a faint vertical line at 80 characters as a line-length guide
+  "editor.rulers": [80],
+
+  // Wrap long lines so you don't have to scroll sideways
+  "editor.wordWrap": "on",
+
+  // ---------------------------------------------------------------------------
+  // Files
+  // ---------------------------------------------------------------------------
+
+  // Remove extra spaces at the end of lines when saving
+  "files.trimTrailingWhitespace": true,
+
+  // Make sure every file ends with a blank line (a common convention)
+  "files.insertFinalNewline": true,
+
+  // Use Unix-style line endings (LF) so files are identical on every OS
+  "files.eol": "\n",
+
+  // Hide clutter from the file explorer sidebar (files still exist on disk)
+  "files.exclude": {
+    "**/.DS_Store": true,
+    "**/Thumbs.db": true
+  },
+
+  // Don't search inside these folders. Makes search faster and less noisy.
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/dist": true,
+    "**/coverage": true
+  },
+
+  // ---------------------------------------------------------------------------
+  // Language-specific settings
+  // ---------------------------------------------------------------------------
+
+  // Markdown: don't remove trailing spaces, because two spaces mean a line break
+  "[markdown]": {
+    "files.trimTrailingWhitespace": false
+  }
+}

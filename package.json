@@ -1,0 +1,22 @@
+{
+  "name": "project-structure-guide",
+  "version": "1.0.0",
+  "description": "A beginner-friendly demo repository showing the standard files and dot-folders in a modern GitHub project.",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "node --env-file=.env src/index.js",
+    "test": "node src/index.js"
+  },
+  "keywords": [
+    "beginner",
+    "github",
+    "project-structure",
+    "tutorial"
+  ],
+  "author": "Faizan",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18"
+  }
+}
