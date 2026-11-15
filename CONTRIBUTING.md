@@ -51,7 +51,7 @@ Click the **Fork** button at the top-right of the GitHub page. This creates your
 
 ### Step 2: Clone your fork
 ```bash
-git clone https://github.com/faizanulrehman890-afk/project-structure-guide.git
+git clone https://github.com/<your-username>/project-structure-guide.git
 cd project-structure-guide
 ```
 
